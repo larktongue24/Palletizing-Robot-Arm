@@ -2,9 +2,6 @@ import numpy as np
 from lib.IK_velocity import IK_velocity
 from lib.calcJacobian import calcJacobian
 
-"""
-Lab 3
-"""
 
 def IK_velocity_null(q_in, v_in, omega_in, b):
     """
@@ -18,7 +15,6 @@ def IK_velocity_null(q_in, v_in, omega_in, b):
     dq + null - 1 x 7 vector corresponding to the joint velocities + secondary task null velocities
     """
 
-    ## STUDENT CODE GOES HERE
     dq = np.zeros((1, 7))
     null = np.zeros((1, 7))
     b = b.reshape((7, 1))

@@ -24,22 +24,6 @@ def isRobotCollided(q, map):
             return True
     return False
 
-# def isPathCollided(q1, q2, map, num_steps=10):
-#     """
-#     Check if the path between two configurations is collision-free.
-#     :param q1: Start configuration
-#     :param q2: End configuration
-#     :param map: Map struct containing obstacles
-#     :param num_steps: Number of steps to interpolate between q1 and q2
-#     :return: True if any part of the path causes a collision, False otherwise
-#     """
-#     # Interpolate configurations between q1 and q2
-#     for i in range(num_steps + 1):
-#         q_intermediate = q1 + (q2 - q1) * (i / num_steps)
-#         if isRobotCollided(q_intermediate, map):
-#             return True
-#     return False
-
 def isPathCollided(q1, q2, map, step_size=0.01):
     """
     Check if the path between two configurations is collision-free.
@@ -121,15 +105,7 @@ def rrt(map, start, goal):
             path_goal = construct_path(T_goal, q_rand)[::-1]
             return np.vstack((path_start, path_goal))
 
-    # No path found
     return np.array([])
-    
-
-
-
-
-
-    return np.array(path)
 
 if __name__ == '__main__':
     map_struct = loadmap("../maps/map1.txt")

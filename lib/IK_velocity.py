@@ -2,7 +2,6 @@ import numpy as np
 from lib.calcJacobian import calcJacobian
 
 
-
 def IK_velocity(q_in, v_in, omega_in):
     """
     :param q_in: 1 x 7 vector corresponding to the robot's current configuration.
@@ -16,8 +15,6 @@ def IK_velocity(q_in, v_in, omega_in):
          and omega_in have multiple solutions, then you should select the solution
          that minimizes the l2 norm of dq
     """
-
-    ## STUDENT CODE GOES HERE
 
     dq = np.zeros((1, 7))
 

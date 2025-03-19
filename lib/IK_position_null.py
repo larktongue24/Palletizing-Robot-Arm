@@ -67,7 +67,6 @@ class IK:
         must be sin(angle), where angle is the angle of rotation around this axis
         """
 
-        ## STUDENT CODE STARTS HERE
         displacement = np.zeros(3)
         axis = np.zeros(3)
 
@@ -76,7 +75,6 @@ class IK:
         R_current = current[:3,:3]
         axis = calcAngDiff(R_target, R_current)
 
-        ## END STUDENT CODE
         return displacement, axis
 
     @staticmethod
@@ -100,7 +98,6 @@ class IK:
         angle - the angle in radians between the orientations of G & H
         """
         
-        ## STUDENT CODE STARTS HERE
         distance = 0
         angle = 0
 
@@ -112,7 +109,7 @@ class IK:
         R = R_G.T @ R_H
         trace = np.trace(R)
         angle = acos(np.clip((trace-1)*0.5, -1, 1))
-        ## END STUDENT CODE
+
         return distance, angle
 
     def is_valid_solution(self,q,target):
@@ -132,7 +129,6 @@ class IK:
         limits.
         """
 
-        ## STUDENT CODE STARTS HERE
         success = False
         message = "Solution found/not found + reason"
 
@@ -152,7 +148,6 @@ class IK:
                 success = False
                 message = "Solution not found, end effector pose tolerance violated"
 
-        ## END STUDENT CODE
         return success, message
 
     ####################
@@ -177,7 +172,6 @@ class IK:
         decay to zero magnitude as the task is achieved
         """
 
-        ## STUDENT CODE STARTS HERE
         dq = np.zeros(7)
 
         # Compute the current end effector pose
@@ -198,7 +192,6 @@ class IK:
         # Compute the joint velocity
         dq = J_inv @ np.concatenate((displacement, axis))
 
-        ## END STUDENT CODE
         return dq
 
     @staticmethod
@@ -254,9 +247,6 @@ class IK:
         q = seed
         rollout = []
 
-        ## STUDENT CODE STARTS HERE
-
-        
         ## gradient descent:
         while True:
             rollout.append(q)
@@ -278,7 +268,6 @@ class IK:
 
             # update q
             q = q + alpha * dq
-        ## END STUDENT CODE
 
         success, message = self.is_valid_solution(q,target)
         return q, rollout, success, message

@@ -4,11 +4,6 @@ from math import pi
 class FK():
 
     def __init__(self):
-
-        # TODO: you may want to define geometric parameters here that will be
-        # useful in computing the forward kinematics. The data you will need
-        # is provided in the lab handout
-
         self.a = [0, 0, 0.0825, 0.0825, 0, 0.088, 0]
         self.alpha = [-pi/2, pi/2, pi/2, pi/2, -pi/2, pi/2, 0]
         self.d = [0.333, 0, 0.316, 0, 0.384, 0, 0.21]
@@ -30,7 +25,6 @@ class FK():
                   world frame
         """
 
-        # Your Lab 1 code starts here
         jointPositions = np.zeros((8,3))
         T0e = np.identity(4)
 
@@ -57,7 +51,6 @@ class FK():
 
         return T
 
-    # This code is for Lab 2, you can ignore it ofr Lab 1
     def get_axis_of_rotation(self, q):
         """
         INPUT:

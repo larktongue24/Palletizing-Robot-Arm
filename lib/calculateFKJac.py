@@ -7,10 +7,6 @@ class FK_Jac():
 
     def __init__(self):
 
-        # TODO: you may want to define geometric parameters here that will be
-        # useful in computing the forward kinematics. The data you will need
-        # is provided in the lab 1 and 4 handout
-
         self.joint_offsets = [
             [0, 0, 0.141, 1],  # Joint 1 at the origin of frame 0
             [0, 0, 0, 1],  # Joint 2 at the origin of frame 1, no offset
@@ -85,6 +81,7 @@ class FK_Jac():
         Returns the DH parameters as a list of tuples,
         where each tuple is (a, alpha, d, theta).
         """
+        
         # Define the DH parameters for each joint
         return [
             (0, -pi / 2, 0.333, q[0]),

@@ -20,7 +20,6 @@ def calcAngDiff(R_des, R_curr):
     must be sin(angle), where angle is the angle of rotation around this axis
     """
     omega = np.zeros(3)
-    ## STUDENT CODE STARTS HERE
 
     R = R_curr.T @ R_des
     S = 0.5 * (R - R.T)

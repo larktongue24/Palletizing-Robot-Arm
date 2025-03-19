@@ -9,8 +9,6 @@ def FK_velocity(q_in, dq):
     velocity - 6 x 1 vector corresponding to the end effector velocities.    
     """
 
-    ## STUDENT CODE GOES HERE
-
     velocity = np.zeros((6, 1))
     J = calcJacobian(q_in)
     velocity = J @ dq.reshape(7,1)
